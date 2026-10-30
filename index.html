@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Mate AI | Smart Student Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">S</div><div><b>Study Mate</b><small>AI STUDENT ASSISTANT</small></div></div>
+      <div class="menu-label">WORKSPACE</div>
+      <nav>
+        <button class="nav-link active" data-page="overview"><span>▦</span> Overview</button>
+        <button class="nav-link" data-page="assignments"><span>▤</span> Assignments</button>
+        <button class="nav-link" data-page="planner"><span>▦</span> Study Planner</button>
+        <button class="nav-link" data-page="assistant"><span>✧</span> AI Study Assistant</button>
+        <button class="nav-link" data-page="todo"><span>☑</span> To-Do List</button>
+        <button class="nav-link" data-page="progress"><span>◔</span> Progress Tracker</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><div class="sparkle">✦</div><b>Small steps, big results.</b><p>Stay organised and make every study session count.</p></div><div class="profile"><div class="avatar">S</div><div><b>Student</b><small>My workspace</small></div><span class="dots">•••</span></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="page-title">Overview</h1></div><div class="top-actions"><span class="today" id="today-label"></span><div class="avatar small">S</div></div></header>
+
+      <section class="page active" id="overview">
+        <div class="welcome"><div><div class="eyebrow light">YOUR PERSONAL STUDY DASHBOARD</div><h2>Make today a productive day<span>.</span></h2><p>Plan your work, stay focused, and keep moving towards your goals.</p><button class="primary-btn" data-go="planner">Plan my study day <span>→</span></button></div><div class="welcome-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book">✧</div><div class="art-note note-one">Focus</div><div class="art-note note-two">Learn</div></div></div>
+        <div class="section-heading"><div><h3>Your overview</h3><p>A quick look at your academic progress</p></div><span class="muted">Updated just now</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total assignments</span><span class="stat-icon lavender">▤</span></div><strong id="stat-total">0</strong><small>All your added assignments</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-icon mint">✓</span></div><strong id="stat-done">0</strong><small>Tasks finished successfully</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending tasks</span><span class="stat-icon peach">◷</span></div><strong id="stat-pending">0</strong><small>Keep an eye on deadlines</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Study sessions</span><span class="stat-icon blue">◉</span></div><strong id="stat-sessions">0</strong><small>Sessions in your planner</small></article>
+        </div>
+        <div class="overview-grid">
+          <article class="panel"><div class="panel-heading"><div><h3>Assignment progress</h3><p>Your completed work at a glance</p></div><span class="pill">Overall</span></div><div class="progress-wrap"><div class="donut" id="progress-donut"><div><b id="progress-percent">0%</b><small>Completed</small></div></div><div class="legend"><div><i class="dot purple"></i><span>Completed</span><b id="legend-done">0</b></div><div><i class="dot grey"></i><span>Pending</span><b id="legend-pending">0</b></div></div></div></article>
+          <article class="panel"><div class="panel-heading"><div><h3>Upcoming deadlines</h3><p>Assignments that need attention</p></div><button class="text-btn" data-go="assignments">View all →</button></div><div id="upcoming-list" class="compact-list"><div class="empty-state">No deadlines yet. Add your first assignment.</div></div></article>
+        </div>
+        <article class="panel activity-panel"><div class="panel-heading"><div><h3>Quick start</h3><p>Choose what you want to work on</p></div></div><div class="quick-grid"><button class="quick-action" data-go="assignments"><span class="quick-icon lavender">＋</span><b>Add assignment</b><small>Track your academic work</small></button><button class="quick-action" data-go="planner"><span class="quick-icon mint">◷</span><b>Plan a study session</b><small>Organise your timetable</small></button><button class="quick-action" data-go="assistant"><span class="quick-icon peach">✧</span><b>Ask Study Mate</b><small>Get help with a topic</small></button><button class="quick-action" data-go="todo"><span class="quick-icon blue">☑</span><b>Create a to-do</b><small>Remember small tasks</small></button></div></article>
+      </section>
+
+      <section class="page" id="assignments">
+        <div class="section-heading"><div><h3>Assignment manager</h3><p>Add deadlines and keep track of your submissions.</p></div><button class="primary-btn" id="show-assignment-form">＋ Add assignment</button></div>
+        <form class="panel form-panel hidden" id="assignment-form"><h3>New assignment</h3><div class="form-grid"><label>Assignment title<input id="assignment-title" required placeholder="e.g. DBMS Practical 5"></label><label>Subject<input id="assignment-subject" required placeholder="e.g. Database Management"></label><label>Due date<input id="assignment-date" type="date" required></label><label>Priority<select id="assignment-priority"><option>Medium</option><option>High</option><option>Low</option></select></label></div><div class="form-actions"><button type="button" class="secondary-btn" id="cancel-assignment">Cancel</button><button class="primary-btn">Save assignment</button></div></form>
+        <article class="panel"><div class="panel-heading"><div><h3>My assignments</h3><p id="assignment-count">0 assignments</p></div><input class="search" id="assignment-search" placeholder="Search assignments..." /></div><div class="table-scroll"><table><thead><tr><th>Assignment</th><th>Subject</th><th>Due date</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead><tbody id="assignment-table"></tbody></table></div><div id="assignment-empty" class="empty-state">No assignments added yet.</div></article>
+      </section>
+
+      <section class="page" id="planner">
+        <div class="section-heading"><div><h3>Study planner</h3><p>Build a realistic routine, one session at a time.</p></div><button class="primary-btn" id="show-session-form">＋ Add session</button></div>
+        <form class="panel form-panel hidden" id="session-form"><h3>Plan a study session</h3><div class="form-grid"><label>Subject / topic<input id="session-topic" required placeholder="e.g. Data Structures - Trees"></label><label>Date<input id="session-date" type="date" required></label><label>Start time<input id="session-time" type="time" required></label><label>Duration<select id="session-duration"><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="90">1.5 hours</option><option value="120">2 hours</option></select></label></div><div class="form-actions"><button type="button" class="secondary-btn" id="cancel-session">Cancel</button><button class="primary-btn">Save session</button></div></form>
+        <div id="session-list" class="session-list"></div>
+      </section>
+
+      <section class="page" id="assistant">
+        <div class="assistant-intro"><div class="assistant-symbol">✧</div><div><h2>How can I help you learn?</h2><p>Ask a question, request a simple explanation, or get a study plan.</p></div></div>
+        <div class="chat-panel panel"><div class="chat-heading"><div class="assistant-avatar">✧</div><div><b>Study Mate Assistant</b><small><i></i> Demo assistant · Connect an AI API for live answers</small></div></div><div class="chat-messages" id="chat-messages"><div class="message bot">Hi! I'm Study Mate. I can help you practise learning. Try asking me to explain a topic or make a study plan. <small>Study Mate</small></div></div><div class="suggestions"><button>Explain DBMS in simple words</button><button>Give me a 2-hour study plan</button><button>How can I prepare for exams?</button></div><form class="chat-input" id="chat-form"><input id="chat-question" placeholder="Type your study question..." autocomplete="off" required><button class="primary-btn">Send ↑</button></form></div>
+        <p class="notice">Note: This starter version uses sample responses. It is not connected to a live AI service yet.</p>
+      </section>
+
+      <section class="page" id="todo">
+        <div class="section-heading"><div><h3>My to-do list</h3><p>Keep small academic tasks in one place.</p></div></div>
+        <form class="panel todo-form" id="todo-form"><input id="todo-input" placeholder="What do you need to do?" required><button class="primary-btn">＋ Add task</button></form>
+        <article class="panel"><div class="panel-heading"><div><h3>Tasks</h3><p>Tick a task when it is complete.</p></div><span class="pill" id="todo-count">0 tasks</span></div><div id="todo-list" class="todo-list"></div></article>
+      </section>
+
+      <section class="page" id="progress">
+        <div class="section-heading"><div><h3>Progress tracker</h3><p>See how consistently you are completing your work.</p></div></div>
+        <div class="stats-grid"><article class="stat-card"><div class="stat-top"><span>Assignments completed</span><span class="stat-icon mint">✓</span></div><strong id="progress-done">0</strong><small>Completed assignments</small></article><article class="stat-card"><div class="stat-top"><span>Assignments pending</span><span class="stat-icon peach">◷</span></div><strong id="progress-pending">0</strong><small>Still to be completed</small></article><article class="stat-card"><div class="stat-top"><span>Study sessions planned</span><span class="stat-icon blue">◉</span></div><strong id="progress-sessions">0</strong><small>Sessions in your planner</small></article></div>
+        <article class="panel"><div class="panel-heading"><div><h3>Your completion rate</h3><p>Based on assignments added to this browser.</p></div></div><div class="big-progress"><div class="big-progress-fill" id="big-progress-fill"></div></div><div class="big-progress-label"><b id="big-progress-text">0% completed</b><span id="big-progress-count">0 of 0 assignments</span></div></article>
+      </section>
+
+      <footer>© 2026 Study Mate AI <span>Learn smarter. Stay organised. Grow every day.</span></footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
